@@ -1,13 +1,13 @@
 import { memo } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { leadsApi } from '@/api/leads';
-import { isToday } from '@/lib/time';
 import { AddLeadButton } from '../components/AddLeadButton';
 import { AddLeadDialog } from '../components/AddLeadDialog';
 import { LeadList } from '../components/LeadList';
 import { TimelineDialog } from '../components/TimelineDialog';
 import { TodaysFollowUps } from '../components/TodaysFollowUps';
 import { useDialogStore } from '../store/dialogStore';
+import { isToday } from '../utils/time';
 
 const LeadsPageBase = () => {
   const { data: leads = [] } = useQuery({
@@ -18,6 +18,7 @@ const LeadsPageBase = () => {
 
   const addOpen = useDialogStore((s) => s.addOpen);
   const closeAdd = useDialogStore((s) => s.closeAdd);
+  const openTimeline = useDialogStore((s) => s.openTimeline);
   const timelineOpen = useDialogStore((s) => s.timelineOpen);
   const selectedLeadId = useDialogStore((s) => s.selectedLeadId);
   const closeTimeline = useDialogStore((s) => s.closeTimeline);
@@ -32,13 +33,13 @@ const LeadsPageBase = () => {
         <AddLeadButton />
       </header>
 
-      <TodaysFollowUps leads={todays} />
+      <TodaysFollowUps leads={todays} onOpenTimeline={openTimeline} />
 
       <hr className="border-default" />
 
       <section className="flex flex-col gap-3">
         <h2 className="text-xs font-semibold uppercase tracking-wide text-labels">All Leads</h2>
-        <LeadList leads={others} />
+        <LeadList leads={others} onOpenTimeline={openTimeline} />
       </section>
 
       <AddLeadDialog open={addOpen} onOpenChange={(o) => (o ? null : closeAdd())} />

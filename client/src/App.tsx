@@ -1,6 +1,7 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
-import { LeadsPage } from '@/features/leads/routes/LeadsPage';
+import { BrowserRouter } from 'react-router-dom';
+import { LeadsRoute } from '@/features/leads/routes/LeadsRoute';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -8,10 +9,14 @@ const queryClient = new QueryClient({
   },
 });
 
+const noop = () => undefined;
+
 export const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
-      <LeadsPage />
+      <BrowserRouter>
+        <LeadsRoute onAddLead={noop} onOpenTimeline={noop} />
+      </BrowserRouter>
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   );

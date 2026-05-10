@@ -1,19 +1,16 @@
 import { memo } from 'react';
 import { LeadCard } from './LeadCard';
-import { useDialogStore } from '../store/dialogStore';
 import type { ILeadListProps } from './types';
 
-const LeadListBase = ({ leads }: ILeadListProps) => {
-  const openTimeline = useDialogStore((s) => s.openTimeline);
-
+const LeadListBase = ({ leads, onOpenTimeline }: ILeadListProps) => {
   if (leads.length === 0) {
-    return <p className="text-sm text-labels">No leads yet.</p>;
+    return <p className="text-labels">No leads yet.</p>;
   }
 
   return (
     <div className="flex flex-col gap-2">
       {leads.map((lead) => (
-        <LeadCard key={lead.id} lead={lead} onClick={(l) => openTimeline(l.id)} />
+        <LeadCard key={lead.id} lead={lead} onOpenTimeline={onOpenTimeline} />
       ))}
     </div>
   );
