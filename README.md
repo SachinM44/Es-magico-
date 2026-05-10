@@ -5,6 +5,13 @@ A single-screen lead management tool — lead list with status filters, discussi
 **Demo video:** _<Loom URL here>_
 
 ## Screenshots
+<img width="1893" height="963" alt="Screenshot 2026-05-10 203735" src="https://github.com/user-attachments/assets/b44defaf-26cf-446b-a70e-a8ed5bb77901" />
+<img width="1912" height="870" alt="Screenshot 2026-05-10 203910" src="https://github.com/user-attachments/assets/cd176911-7b9e-4fa6-b111-241199ffed1b" />
+<img width="1913" height="842" alt="Screenshot 2026-05-10 203952" src="https://github.com/user-attachments/assets/5c626531-734a-45ff-b2ca-580f84079780" />
+<img width="1907" height="950" alt="Screenshot 2026-05-10 204031" src="https://github.com/user-attachments/assets/910a14a3-b9f8-41d7-b2e8-6c7d78696771" />
+<img width="1895" height="916" alt="Screenshot 2026-05-10 204425" src="https://github.com/user-attachments/assets/244fdb23-8cbd-463e-96f1-6410dfbe07da" />
+
+
 
 
 ## Quick start
