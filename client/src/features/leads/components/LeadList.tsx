@@ -4,7 +4,7 @@ import type { ILeadListProps } from './types';
 
 const LeadListBase = ({ leads, onOpenTimeline }: ILeadListProps) => {
   if (leads.length === 0) {
-    return <p className="text-labels">No leads yet.</p>;
+    return <p className="text-labels text-center ">Search not found</p>;
   }
 
   return (
