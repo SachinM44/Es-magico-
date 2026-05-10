@@ -5,9 +5,9 @@ import type { IFilterBarProps } from '../types';
 
 const FilterBarBase = ({ q, status, onQChange, onStatusChange }: IFilterBarProps) => {
   return (
-    <div className="flex flex-col gap-3">
-      <SearchInput value={q} onChange={onQChange} />
+    <div className="flex flex-wrap items-center justify-between gap-3">
       <StatusFilterPills value={status} onChange={onStatusChange} />
+      <SearchInput value={q} onChange={onQChange} />
     </div>
   );
 };

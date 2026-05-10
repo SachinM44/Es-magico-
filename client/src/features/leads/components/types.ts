@@ -1,17 +1,21 @@
 import type { Lead, LeadStatus } from '@prisma/client';
 
+export interface ILeadWithLastNote extends Lead {
+  lastNote: string | null;
+}
+
 export interface ILeadCardProps {
-  lead: Lead;
+  lead: ILeadWithLastNote;
   onOpenTimeline: (leadId: string) => void;
 }
 
 export interface ILeadListProps {
-  leads: Lead[];
+  leads: ILeadWithLastNote[];
   onOpenTimeline: (leadId: string) => void;
 }
 
 export interface ITodaysFollowUpsProps {
-  leads: Lead[];
+  leads: ILeadWithLastNote[];
   onOpenTimeline: (leadId: string) => void;
 }
 

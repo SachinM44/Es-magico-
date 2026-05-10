@@ -18,14 +18,14 @@ const SearchInputBase = ({ value, onChange }: ISearchInputProps) => {
   }, [local, value, onChange]);
 
   return (
-    <div className="relative w-full max-w-sm">
+    <div className="relative w-full rounded-full">
       <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-labels" />
       <input
         type="search"
         value={local}
         onChange={(e) => setLocal(e.target.value)}
         placeholder="Search leads..."
-        className="w-full rounded-md border border-default bg-white py-2 pl-9 pr-3 text-body placeholder-default focus:outline-none focus:ring-2 focus:ring-primary"
+        className="w-full rounded-lg border border-default bg-white py-2 pl-9 pr-3 text-body placeholder-default focus:outline-none focus:ring-2 focus:ring-primary"
       />
     </div>
   );

@@ -28,8 +28,15 @@ leadsRouter.get('/', async (req, res) => {
   const leads = await prisma.lead.findMany({
     where,
     orderBy: [{ followUpAt: { sort: 'asc', nulls: 'last' } }, { createdAt: 'desc' }],
+    include: {
+      discussions: { orderBy: { createdAt: 'desc' }, take: 1, select: { note: true } },
+    },
   });
-  res.status(200).json(leads);
+  const result = leads.map(({ discussions, ...lead }) => ({
+    ...lead,
+    lastNote: discussions[0]?.note ?? null,
+  }));
+  res.status(200).json(result);
 });
 
 leadsRouter.post('/', async (req, res) => {

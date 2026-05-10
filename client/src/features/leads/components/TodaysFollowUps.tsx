@@ -6,7 +6,7 @@ const TodaysFollowUpsBase = ({ leads, onOpenTimeline }: ITodaysFollowUpsProps) =
   return (
     <section className="flex flex-col gap-3">
       <h2 className="text-xs font-semibold uppercase tracking-wide text-labels">
-        Today&apos;s Follow-ups
+        <span className="mr-1.5">📌</span>TODAY&apos;S FOLLOW-UPS
       </h2>
       {leads.length === 0 ? (
         <p className="text-labels">Nothing due today.</p>

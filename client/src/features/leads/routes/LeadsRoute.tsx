@@ -1,5 +1,6 @@
 import { memo, useCallback } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import { TrendingUp } from 'lucide-react';
 import type { LeadStatus } from '@prisma/client';
 import { LEAD_STATUSES } from '@/lib/status';
 import { FilterBar } from '../components/filters/FilterBar';
@@ -56,13 +57,15 @@ const LeadsRouteBase = ({ onAddLead, onOpenTimeline }: ILeadsRouteProps) => {
   return (
     <div className="mx-auto flex max-w-3xl flex-col gap-6 p-6">
       <header className="flex items-center justify-between">
-        <h1 className="text-2xl font-semibold text-heading">LeadFlow</h1>
+        <div className="flex items-center gap-2 text-primary">
+          <span className="text-2xl font-bold">LeadFlow</span>
+        </div>
         <button
           type="button"
           onClick={onAddLead}
-          className="rounded-md bg-primary px-4 py-2 text-sm font-medium text-white transition hover:bg-primary-dark"
+          className="rounded-lg bg-primary px-4 py-2 font-medium text-white transition hover:bg-primary-dark"
         >
-          Add Lead
+          + Add New Lead
         </button>
       </header>
 
@@ -73,7 +76,7 @@ const LeadsRouteBase = ({ onAddLead, onOpenTimeline }: ILeadsRouteProps) => {
       <hr className="border-default" />
 
       <section className="flex flex-col gap-3">
-        <h2 className="text-xs font-semibold uppercase tracking-wide text-labels">All Leads</h2>
+        <h2 className="text-xs font-semibold uppercase tracking-wide text-labels">ALL LEADS</h2>
         <LeadList leads={others} onOpenTimeline={onOpenTimeline} />
       </section>
     </div>

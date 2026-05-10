@@ -11,6 +11,7 @@ const INACTIVE = 'bg-white text-body border-default hover:bg-neutral';
 const StatusFilterPillsBase = ({ value, onChange }: IStatusFilterPillsProps) => {
   return (
     <div className="flex flex-wrap items-center gap-2">
+      <span className="text-sm font-semibold uppercase tracking-wide text-labels">FILTERS:</span>
       <button
         type="button"
         onClick={() => onChange(null)}

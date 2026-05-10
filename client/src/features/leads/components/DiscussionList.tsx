@@ -8,21 +8,21 @@ const DiscussionListBase = ({ discussions }: IDiscussionListProps) => {
     return <p className="text-sm text-labels">No discussions yet.</p>;
   }
   return (
-    <ol className="flex flex-col gap-4">
+    <ol className="flex flex-col">
       {discussions.map((d, i) => (
         <li key={d.id} className="flex gap-3">
           <div className="flex flex-col items-center pt-1">
             <span
               className={cn(
-                'h-2.5 w-2.5 rounded-full',
+                'z-10 h-2.5 w-2.5 shrink-0 rounded-full',
                 i === 0 ? 'bg-primary' : 'bg-neutral-dark',
               )}
             />
             {i < discussions.length - 1 ? (
-              <span className="mt-1 w-px flex-1 bg-default" />
+              <span className="w-0.5 flex-1 bg-slate-200" />
             ) : null}
           </div>
-          <div className="flex-1 pb-2">
+          <div className="flex-1 pb-6">
             <p className="text-xs text-labels">
               {dayjs(d.createdAt).format('MMM D, h:mm A')} ({fromNow(d.createdAt)})
             </p>
