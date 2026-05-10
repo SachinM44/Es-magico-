@@ -9,7 +9,7 @@ const buttonVariants = cva(
     variants: {
       variant: {
         primary: 'bg-primary text-white hover:bg-primary-dark',
-        secondary: 'bg-white text-body border border-default hover:bg-neutral',
+        secondary: 'border border-default bg-white text-body hover:bg-neutral',
         ghost: 'text-body hover:bg-neutral',
         destructive: 'bg-red text-white hover:bg-red-dark',
       },
@@ -17,7 +17,7 @@ const buttonVariants = cva(
         default: 'h-9 px-4 py-2',
         sm: 'h-8 px-3',
         lg: 'h-10 px-6',
-        icon: 'h-9 w-9',
+        icon: 'size-9',
       },
     },
     defaultVariants: { variant: 'primary', size: 'default' },
@@ -25,8 +25,7 @@ const buttonVariants = cva(
 );
 
 export interface IButtonProps
-  extends ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof buttonVariants> {
+  extends ButtonHTMLAttributes<HTMLButtonElement>, VariantProps<typeof buttonVariants> {
   asChild?: boolean;
 }
 

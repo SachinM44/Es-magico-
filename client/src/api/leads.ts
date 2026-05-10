@@ -17,8 +17,12 @@ export const leadsApi = {
     return request<Lead[]>(`/leads${suffix}`);
   },
   get: (id: string): Promise<Lead> => request<Lead>(`/leads/${id}`),
-  create: (body: Pick<Lead, 'name'> & Partial<Pick<Lead, 'company' | 'phone' | 'status'>>): Promise<Lead> =>
-    request<Lead>(`/leads`, { method: 'POST', body: JSON.stringify(body) }),
-  patch: (id: string, body: Partial<Pick<Lead, 'name' | 'company' | 'phone' | 'status'>>): Promise<Lead> =>
+  create: (
+    body: Pick<Lead, 'name'> & Partial<Pick<Lead, 'company' | 'phone' | 'status'>>,
+  ): Promise<Lead> => request<Lead>(`/leads`, { method: 'POST', body: JSON.stringify(body) }),
+  patch: (
+    id: string,
+    body: Partial<Pick<Lead, 'name' | 'company' | 'phone' | 'status'>>,
+  ): Promise<Lead> =>
     request<Lead>(`/leads/${id}`, { method: 'PATCH', body: JSON.stringify(body) }),
 };

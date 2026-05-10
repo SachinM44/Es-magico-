@@ -8,11 +8,11 @@ services:
       POSTGRES_PASSWORD: leadflow
       POSTGRES_DB: leadflow
     ports:
-      - "5432:5432"
+      - '5432:5432'
     volumes:
       - leadflow-postgres-data:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U leadflow -d leadflow"]
+      test: ['CMD-SHELL', 'pg_isready -U leadflow -d leadflow']
       interval: 5s
       timeout: 5s
       retries: 10

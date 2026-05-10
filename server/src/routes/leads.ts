@@ -1,11 +1,7 @@
 import { Prisma } from '@prisma/client';
 import { Router } from 'express';
 import { prisma } from '../prisma.js';
-import {
-  createLeadSchema,
-  listLeadsQuerySchema,
-  updateLeadSchema,
-} from '../schemas/lead.js';
+import { createLeadSchema, listLeadsQuerySchema, updateLeadSchema } from '../schemas/lead.js';
 import { discussionsRouter } from './discussions.js';
 
 export const leadsRouter = Router();

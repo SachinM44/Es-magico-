@@ -1,6 +1,6 @@
-import { PrismaClient } from "@prisma/client";
-import type { LeadStatus } from "@prisma/client";
-import { faker } from "@faker-js/faker";
+import { PrismaClient } from '@prisma/client';
+import type { LeadStatus } from '@prisma/client';
+import { faker } from '@faker-js/faker';
 
 const prisma = new PrismaClient();
 faker.seed(20260509);
@@ -32,45 +32,85 @@ const T = todayAt14Local();
 
 const plan: SeedLead[] = [
   {
-    status: "NEW",
+    status: 'NEW',
     discussions: [
-      { note: "Inbound from website contact form.", followUpAt: null, createdAt: offsetDays(T, -3) },
-      { note: "Left voicemail; awaiting callback.", followUpAt: T, createdAt: offsetDays(T, -1) },
+      {
+        note: 'Inbound from website contact form.',
+        followUpAt: null,
+        createdAt: offsetDays(T, -3),
+      },
+      { note: 'Left voicemail; awaiting callback.', followUpAt: T, createdAt: offsetDays(T, -1) },
     ],
   },
   {
-    status: "CONTACTED",
+    status: 'CONTACTED',
     discussions: [
-      { note: "First call: budget confirmed, decision-maker identified.", followUpAt: offsetDays(T, 7), createdAt: offsetDays(T, -10) },
-      { note: "Follow-up email sent with case studies.", followUpAt: offsetDays(T, -2), createdAt: offsetDays(T, -5) },
+      {
+        note: 'First call: budget confirmed, decision-maker identified.',
+        followUpAt: offsetDays(T, 7),
+        createdAt: offsetDays(T, -10),
+      },
+      {
+        note: 'Follow-up email sent with case studies.',
+        followUpAt: offsetDays(T, -2),
+        createdAt: offsetDays(T, -5),
+      },
     ],
   },
   {
-    status: "QUALIFIED",
+    status: 'QUALIFIED',
     discussions: [
-      { note: "Discovery call complete; pain points captured.", followUpAt: null, createdAt: offsetDays(T, -8) },
-      { note: "Sent pricing one-pager.", followUpAt: offsetDays(T, 3), createdAt: offsetDays(T, -2) },
-      { note: "Procurement intro scheduled.", followUpAt: offsetDays(T, 5), createdAt: offsetDays(T, -1) },
+      {
+        note: 'Discovery call complete; pain points captured.',
+        followUpAt: null,
+        createdAt: offsetDays(T, -8),
+      },
+      {
+        note: 'Sent pricing one-pager.',
+        followUpAt: offsetDays(T, 3),
+        createdAt: offsetDays(T, -2),
+      },
+      {
+        note: 'Procurement intro scheduled.',
+        followUpAt: offsetDays(T, 5),
+        createdAt: offsetDays(T, -1),
+      },
     ],
   },
   {
-    status: "PROPOSAL_SENT",
+    status: 'PROPOSAL_SENT',
     discussions: [
-      { note: "Proposal v1 delivered to champion.", followUpAt: offsetDays(T, 2), createdAt: offsetDays(T, -4) },
-      { note: "Legal review in progress on MSA.", followUpAt: offsetDays(T, 10), createdAt: offsetDays(T, -1) },
+      {
+        note: 'Proposal v1 delivered to champion.',
+        followUpAt: offsetDays(T, 2),
+        createdAt: offsetDays(T, -4),
+      },
+      {
+        note: 'Legal review in progress on MSA.',
+        followUpAt: offsetDays(T, 10),
+        createdAt: offsetDays(T, -1),
+      },
     ],
   },
   {
-    status: "WON",
+    status: 'WON',
     discussions: [
-      { note: "Verbal yes from VP Sales.", followUpAt: null, createdAt: offsetDays(T, -20) },
-      { note: "Contract signed; kickoff handed to onboarding.", followUpAt: null, createdAt: offsetDays(T, -14) },
+      { note: 'Verbal yes from VP Sales.', followUpAt: null, createdAt: offsetDays(T, -20) },
+      {
+        note: 'Contract signed; kickoff handed to onboarding.',
+        followUpAt: null,
+        createdAt: offsetDays(T, -14),
+      },
     ],
   },
   {
-    status: "LOST",
+    status: 'LOST',
     discussions: [
-      { note: "Closed-lost: chose an incumbent vendor.", followUpAt: null, createdAt: offsetDays(T, -30) },
+      {
+        note: 'Closed-lost: chose an incumbent vendor.',
+        followUpAt: null,
+        createdAt: offsetDays(T, -30),
+      },
     ],
   },
 ];

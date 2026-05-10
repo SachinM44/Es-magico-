@@ -8,7 +8,12 @@ interface IStatusStyle {
 }
 
 export const STATUS_STYLES: Record<LeadStatus, IStatusStyle> = {
-  NEW: { label: 'New', bg: 'bg-green-lighter', text: 'text-green-dark', border: 'border-green-light' },
+  NEW: {
+    label: 'New',
+    bg: 'bg-green-lighter',
+    text: 'text-green-dark',
+    border: 'border-green-light',
+  },
   CONTACTED: {
     label: 'Contacted',
     bg: 'bg-yellow-lighter',

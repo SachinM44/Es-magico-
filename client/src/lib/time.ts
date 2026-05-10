@@ -7,8 +7,7 @@ dayjs.extend(utc);
 dayjs.extend(timezone);
 dayjs.extend(relativeTime);
 
-export const userTz = (): string =>
-  Intl.DateTimeFormat().resolvedOptions().timeZone || 'UTC';
+export const userTz = (): string => Intl.DateTimeFormat().resolvedOptions().timeZone || 'UTC';
 
 export const isToday = (iso: string | Date | null | undefined): boolean => {
   if (!iso) return false;
