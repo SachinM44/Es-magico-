@@ -23,11 +23,15 @@ const DiscussionListBase = ({ discussions }: IDiscussionListProps) => {
             ) : null}
           </div>
           <div className="flex-1 pb-2">
-            <p className="text-xs text-labels">{fromNow(d.createdAt)}</p>
-            <p className="mt-1 whitespace-pre-wrap text-body">{d.note}</p>
+            <p className="text-xs text-labels">
+              {dayjs(d.createdAt).format('MMM D, h:mm A')} ({fromNow(d.createdAt)})
+            </p>
+            <div className="mt-1 rounded-md border border-default bg-white p-3">
+              <p className="whitespace-pre-wrap text-body">{d.note}</p>
+            </div>
             {d.followUpAt ? (
               <span className="mt-2 inline-block rounded-full bg-blue-lighter px-3 py-1 text-xs font-medium text-blue-dark">
-                Follow-up set for: {dayjs(d.followUpAt).format('MMM D, YYYY h:mm A')}
+                {'📅'} Follow-up set for: {dayjs(d.followUpAt).format('MMM D, YYYY h:mm A')}
               </span>
             ) : null}
           </div>

@@ -20,14 +20,22 @@ const TimelineDialogBase = ({ open, leadId, onOpenChange }: ITimelineDialogProps
         className="max-w-2xl"
         onPointerDownOutside={(e) => e.preventDefault()}
       >
-        <DialogHeader>
-          <DialogTitle>Lead Timeline</DialogTitle>
-        </DialogHeader>
         {isLoading || !data ? (
-          <p className="text-sm text-labels">Loading…</p>
+          <>
+            <DialogHeader>
+              <DialogTitle className="sr-only">Lead Timeline</DialogTitle>
+            </DialogHeader>
+            <p className="text-sm text-labels">Loading…</p>
+          </>
         ) : (
           <div className="flex max-h-[70vh] flex-col gap-4 overflow-y-auto">
-            <LeadHeader lead={data} />
+            <DialogHeader>
+              <DialogTitle asChild>
+                <div>
+                  <LeadHeader lead={data} />
+                </div>
+              </DialogTitle>
+            </DialogHeader>
             <DiscussionList discussions={data.discussions ?? []} />
             <AddDiscussionForm leadId={data.id} />
           </div>

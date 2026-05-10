@@ -61,28 +61,34 @@ const AddLeadDialogBase = ({ open, onOpenChange }: IAddLeadDialogProps) => {
         }}
       >
         <DialogHeader>
-          <DialogTitle>Add Lead</DialogTitle>
+          <DialogTitle>Add New Lead</DialogTitle>
         </DialogHeader>
         <form onSubmit={onSubmit} className="flex flex-col gap-4">
           <div className="flex flex-col gap-1">
             <label className="text-sm font-medium text-labels">
               Name<span className="ml-0.5 text-red">*</span>
             </label>
-            <Input {...register('name')} aria-invalid={!!errors.name} />
+            <Input
+              {...register('name')}
+              placeholder="e.g. Jane Doe"
+              aria-invalid={!!errors.name}
+            />
             {errors.name ? (
               <p className="text-xs text-red-dark">{errors.name.message}</p>
             ) : null}
           </div>
           <div className="flex flex-col gap-1">
-            <label className="text-sm font-medium text-labels">Company</label>
-            <Input {...register('company')} />
+            <label className="text-sm font-medium text-labels">Company (Optional)</label>
+            <Input {...register('company')} placeholder="e.g. Acme Inc." />
           </div>
           <div className="flex flex-col gap-1">
-            <label className="text-sm font-medium text-labels">Phone</label>
-            <Input {...register('phone')} />
+            <label className="text-sm font-medium text-labels">Phone (Optional)</label>
+            <Input {...register('phone')} placeholder="e.g. +1 555 123 4567" />
           </div>
           <div className="flex flex-col gap-1">
-            <label className="text-sm font-medium text-labels">Status</label>
+            <label className="text-sm font-medium text-labels">
+              Status<span className="ml-0.5 text-red">*</span>
+            </label>
             <select
               value={status}
               onChange={(e) => setValue('status', e.target.value as LeadStatus, { shouldDirty: true })}
@@ -112,9 +118,13 @@ const AddLeadDialogBase = ({ open, onOpenChange }: IAddLeadDialogProps) => {
             >
               Cancel
             </Button>
-            <Button type="submit" disabled={isSubmitting || mutation.isPending}>
+            <button
+              type="submit"
+              disabled={isSubmitting || mutation.isPending}
+              className="rounded-md bg-primary px-4 py-2 text-sm font-medium text-white disabled:opacity-50"
+            >
               Save Lead
-            </Button>
+            </button>
           </div>
         </form>
       </DialogContent>
