@@ -19,10 +19,6 @@ export interface IStatusBadgeProps {
   status: LeadStatus;
 }
 
-export interface IAddLeadButtonProps {
-  onClick?: () => void;
-}
-
 export interface IAddLeadDialogProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
@@ -54,4 +50,33 @@ export interface IStatusFilterPillsProps {
 export interface ILeadsRouteProps {
   onAddLead: () => void;
   onOpenTimeline: (leadId: string) => void;
+}
+
+export interface ILeadHeaderProps {
+  lead: Lead;
+}
+
+export interface IStatusDropdownProps {
+  leadId: string;
+  status: LeadStatus;
+}
+
+export interface IDiscussionListProps {
+  discussions: IDiscussionWithMeta[];
+}
+
+export interface IDiscussionWithMeta {
+  id: string;
+  leadId: string;
+  note: string;
+  followUpAt: string | null;
+  createdAt: string;
+}
+
+export interface IAddDiscussionFormProps {
+  leadId: string;
+}
+
+export interface ILeadWithDiscussions extends Lead {
+  discussions: IDiscussionWithMeta[];
 }

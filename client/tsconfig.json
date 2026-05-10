@@ -15,7 +15,7 @@
     "noEmit": true,
     "allowImportingTsExtensions": true,
     "baseUrl": ".",
-    "paths": { "@/*": ["./src/*"] }
+    "paths": { "@/*": ["./src/*"], "@server/*": ["../server/src/*"] }
   },
   "include": ["src", "../docs/design-tokens.json"],
   "references": [{ "path": "./tsconfig.node.json" }]

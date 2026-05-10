@@ -1,12 +1,15 @@
 node_modules/
+.claude/
 dist/
 build/
 coverage/
 client/dist/
 server/dist/
 docs
+.mcp.json
 CLAUDE.md
-
+mcp.json
+.mcp.json
 .env
 .env.local
 .env.*.local
